@@ -10,7 +10,7 @@
     "pod": "cd ios && pod install && cd ..",
     "test": "jest",
     "start": "react-native webpack-start",
-    "ios": "npx react-native run-ios",
+    "ios": "npx react-native run-ios --simulator 'iPhone 14 Pro'",
     "run:ios:rebuild": "yarn rebuild:ios && yarn ios",
     "run:ios:nodemodules": "yarn rebuild:nodemodules && yarn ios",
     "rebuild:ios": "yarn clean:nodemodules && yarn clean:ios && yarn build:ios",
