@@ -193,7 +193,6 @@ export default (env) => {
          * ```
          */
         {
-          // test: Repack.getAssetExtensionsRegExp(Repack.ASSET_EXTENSIONS),
           test: Repack.getAssetExtensionsRegExp(Repack.ASSET_EXTENSIONS.filter((ext) => ext !== 'svg')),
           use: {
             loader: '@callstack/repack/assets-loader',
@@ -211,10 +210,7 @@ export default (env) => {
         },
         {
           test: Repack.getAssetExtensionsRegExp(Repack.ASSET_EXTENSIONS.filter((ext) => ext === 'svg')),
-          // exclude: /node_modules/,
-          // test: /\.svg$/,
           use: {
-            // loader: 'react-svg-loader',
             loader: '@svgr/webpack',
             options: {
               native: true,

@@ -9,12 +9,8 @@ export const Home = () => {
     <TemplateMainHome
       theme={ThemeBase.Midway}
       title="POC Repack Microfront"
-      labelFirstButton="Pagamentos"
-      onPressFirstButton={() => {}}
-      labelSecondButton="Empréstimos"
-      onPressSecondButton={() => navigation.navigate('Loan Repack')}
-      labelThirdButton="Pix"
-      onPressThirdButton={() => {}}
+      labelButton="Empréstimos"
+      onPressed={() => navigation.navigate('Loan List Repack')}
       isChecked={true}
       onClickMidway={() => {}}
       onClickRiachuelo={() => {}}
