@@ -8,17 +8,17 @@
 - React-Navigation
 - Inversify (inject dependency to clean architecture)
 - Redux
+- Lerna
 
 ## Estrutura do projeto
 
-
 Projeto
 - packages => Microfronts e Package-tool
-  - [core =>](https://github.com/marcelochb/poc-rn-microfront-core) Microfont com a regra de negócio (clean, testes unitários e estado global).
-  - [interfaces =>](https://github.com/marcelochb/poc-rn-microfront-interfaces) Package-Tool com as interfaces de comunicação entre microfronts.
-  - [templates =>](https://github.com/marcelochb/poc-rn-microfront-templates) Package-Tool com o template das screens utilizadas pelos microfront de jornada..
-  - [theme =>](https://github.com/marcelochb/poc-rn-microfront-theme) Package-Tool com a estrutura de tema para toda aplicação.
-  - [ui =>](https://github.com/marcelochb/poc-rn-microfront-ui) Package-Tool de componentes usado para montar os templates.
+  - core => Microfont com a regra de negócio (clean, testes unitários e estado global).
+  - interfaces => Package-Tool com as interfaces de comunicação entre microfronts.
+  - templates => Package-Tool com o template das screens utilizadas pelos microfront de jornada..
+  - theme => Package-Tool com a estrutura de tema para toda aplicação.
+  - ui => Package-Tool de componentes usado para montar os templates.
 - src
   - assets: Application images, videos, gifs and others.
   - routes: React Navigation config.
@@ -26,16 +26,24 @@ Projeto
   - store: Global state app (redux)
 
 ### Como compilar e rodar o projeto
-- Faça o git clone de todos os microfronts e package-tool na pasta packages do projeto
-  Exemplo:
-    `git clone --recursive -j8 https://github.com/marcelochb/poc-rn-repack-main.git`
-    etc...
-- `yarn`
-- `npx lerna bootstrap`
-Iniciar Webpack
-- `yarn start`
-Rodar Android
-- `yarn android`
-Rodar iOS
-- `yarn pod`
-- `yarn ios`
+
+- Faça o clone do projeto
+```bash
+git clone --recursive -j8 https://github.com/marcelochb/poc-rn-repack-main.git
+```
+- Instale as dependências
+```bash
+yarn && npx lerna bootstrap
+```
+- Iniciar Webpack
+```bash
+yarn start
+```
+- Rodar Android
+```bash
+yarn android
+```
+- Rodar iOS
+```bash
+yarn pod && yarn ios
+```
