@@ -27,31 +27,35 @@ Projeto
 
 ### Como compilar e rodar o projeto
 
-- Faça o clone do projeto Main
+1 - Faça o clone do projeto Main
 ```bash
 git clone --recursive -j8 https://github.com/marcelochb/poc-rn-repack-main.git
 ```
-- Instale as dependências (Main Project)
+1.1 - Instale as dependências (Main Project)
 ```bash
 yarn && npx lerna bootstrap
 ```
-- Iniciar Webpack (Main Project)
+1.2 - Iniciar Webpack (Main Project)
 ```bash
 yarn start
 ```
-- Faça o clone do Microfront Loan
+2 - Faça o clone do Microfront Loan
 ```bash
 git clone --recursive -j8 https://github.com/marcelochb/poc-rn-repack-microfront.git
 ```
-- Instale as dependências (Microfront Project)
+2.1 - Instale as dependências (Microfront Project)
 ```bash
 yarn && npx lerna bootstrap
 ```
-- Iniciar Webpack Remoto (Microfront Project)
+2.2 - Install iOS Pods (Microfront Project)
+```bash
+yarn pod
+```
+2.3 - Iniciar Webpack Remoto (Microfront Project)
 ```bash
 yarn start-repack
 ```
-- Rodar iOS (Main Project)
+1.3 - Rodar iOS (Main Project)
 ```bash
 yarn pod && yarn ios
 ```
