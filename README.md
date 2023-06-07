@@ -51,10 +51,6 @@ yarn && npx lerna bootstrap
 ```bash
 yarn start-repack
 ```
-- Rodar Android (Main Project)
-```bash
-yarn android
-```
 - Rodar iOS (Main Project)
 ```bash
 yarn pod && yarn ios
