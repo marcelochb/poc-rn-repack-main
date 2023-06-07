@@ -42,6 +42,10 @@ yarn && npx lerna bootstrap
 ```bash
 yarn start
 ```
+1.3 - Instalando e Iniciando Json Server
+```bash
+brew install json-server && json-server --watch db.json
+```
 2 - Faça o clone do Microfront Loan
 ```bash
 git clone --recursive -j8 https://github.com/marcelochb/poc-rn-repack-microfront.git
@@ -58,7 +62,7 @@ yarn pod
 ```bash
 yarn start-repack
 ```
-1.3 - Rodar iOS (Main Project)
+1.4 - Rodar iOS (Main Project)
 ```bash
 yarn pod && yarn ios
 ```
