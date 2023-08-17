@@ -259,6 +259,16 @@ export default (env) => {
             ...Repack.Federated.SHARED_REACT_NATIVE,
             requiredVersion: '0.71.7',
           },
+          '@react-navigation/native': {
+            singleton: true,
+            eager: true,
+            requiredVersion: '6.1.6',
+          },
+          '@react-navigation/stack': {
+            singleton: true,
+            eager: true,
+            requiredVersion: '6.3.16',
+          },              
         },
       }),
     ],

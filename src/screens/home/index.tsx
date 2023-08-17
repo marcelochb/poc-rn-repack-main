@@ -16,7 +16,7 @@ export const Home = () => {
       theme={theme}
       title="POC Repack Microfront"
       labelButton="Empréstimos"
-      onPressed={() => navigation.navigate('Loan List Repack')}
+      onPressed={() => navigation.navigate('Loan List Repack',{theme: theme})}
       isChecked={theme.name == 'Midway'}
       onClickMidway={() => dispatch(changeTheme(ThemeBase.Midway))}
       onClickRiachuelo={() => dispatch(changeTheme(ThemeBase.Riachuelo))}

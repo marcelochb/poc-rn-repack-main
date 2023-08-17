@@ -1,7 +1,7 @@
 import { Federated } from '@callstack/repack/client';
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { Home, LoanCreateScreen, LoanDetailScreen, LoanListScreen } from '../screens';
+import { Home, LoanApp } from '../screens';
 
 const Stack = createStackNavigator();
 export const Routes = () => {
@@ -13,15 +13,8 @@ export const Routes = () => {
       />
       <Stack.Screen 
         name='Loan List Repack'
-        component={LoanListScreen}
-      />
-      <Stack.Screen 
-        name='Loan Create Repack'
-        component={LoanCreateScreen}
-      />
-      <Stack.Screen 
-        name='Loan Detail Repack'
-        component={LoanDetailScreen}
+        component={LoanApp}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   )
