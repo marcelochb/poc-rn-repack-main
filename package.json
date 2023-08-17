@@ -11,6 +11,7 @@
     "test": "jest",
     "start": "react-native webpack-start",
     "ios": "npx react-native run-ios --simulator 'iPhone 14 Pro'",
+    "ios:release": "npx react-native run-ios --configuration Release --simulator 'iPhone 14 Pro' --no-packager",
     "run:ios:rebuild": "yarn rebuild:ios && yarn ios",
     "run:ios:nodemodules": "yarn rebuild:nodemodules && yarn ios",
     "rebuild:ios": "yarn clean:nodemodules && yarn clean:ios && yarn build:ios",
@@ -44,7 +45,8 @@
     "react-native-screens": "^3.20.0",
     "react-native-svg": "^13.9.0",
     "react-native-svg-transformer": "^1.0.0",
-    "react-redux": "^8.0.7"
+    "react-redux": "^8.0.7",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

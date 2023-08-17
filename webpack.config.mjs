@@ -18,6 +18,7 @@ import * as Repack from '@callstack/repack';
  *            when running with `react-native start/bundle`.
  */
 export default (env) => {
+  console.log(env);
   const {
     mode = 'development',
     context = Repack.getDirname(import.meta.url),
@@ -37,7 +38,7 @@ export default (env) => {
     throw new Error('Missing platform');
   }
 
-    /**
+  /**
    * Using Module Federation might require disabling hmr.
    * Uncomment below to set `devServer.hmr` to `false`.
    *
@@ -106,8 +107,7 @@ export default (env) => {
      */
     output: {
       clean: true,
-      hashFunction: 'xxhash64',
-      path: path.join(dirname, 'build/generated', platform),
+      path: path.join(dirname, 'build', platform),
       filename: 'index.bundle',
       chunkFilename: '[name].chunk.bundle',
       publicPath: Repack.getPublicPath({ platform, devServer }),
@@ -193,7 +193,11 @@ export default (env) => {
          * ```
          */
         {
-          test: Repack.getAssetExtensionsRegExp(Repack.ASSET_EXTENSIONS.filter((ext) => ext !== 'svg')),
+          test: Repack.getAssetExtensionsRegExp(
+            Repack.ASSET_EXTENSIONS.filter(
+              (ext) => ext !== 'svg' && ext !== 'ico'
+            )
+          ),
           use: {
             loader: '@callstack/repack/assets-loader',
             options: {
@@ -209,16 +213,17 @@ export default (env) => {
           },
         },
         {
-          test: Repack.getAssetExtensionsRegExp(Repack.ASSET_EXTENSIONS.filter((ext) => ext === 'svg')),
-          use: {
-            loader: '@svgr/webpack',
-            options: {
-              native: true,
-              dimensions: true,
-            }
-          },
+          test: /\.svg$/,
+          use: [
+            {
+              loader: '@svgr/webpack',
+              options: {
+                native: true,
+                dimensions: true,
+              },
+            },
+          ],
         },
-
       ],
     },
     plugins: [
@@ -242,11 +247,9 @@ export default (env) => {
           assetsPath,
         },
       }),
+
       new Repack.plugins.ModuleFederationPlugin({
         name: 'repackmainapp',
-        exposes: {
-          './App': './src/App.tsx',
-        },
         shared: {
           react: {
             ...Repack.Federated.SHARED_REACT,
@@ -257,7 +260,7 @@ export default (env) => {
             requiredVersion: '0.71.7',
           },
         },
-      }),      
+      }),
     ],
   };
 };

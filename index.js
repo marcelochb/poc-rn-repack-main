@@ -1,6 +1,7 @@
 /**
  * @format
  */
+import "reflect-metadata";
 
 import {AppRegistry, Platform} from 'react-native';
 import App from './src/App';
@@ -9,7 +10,7 @@ import {ScriptManager, Script, Federated} from '@callstack/repack/client';
 
 const resolveURL = Federated.createURLResolver({
   containers: {
-    repackloan: 'http://localhost:9000/[name][ext]',
+    repackloan: 'http://localhost:5555/[name][ext]',
   },
 });
 
@@ -27,11 +28,11 @@ ScriptManager.shared.addResolver(async (scriptId, caller) => {
 
   return {
     url,
-    cache: false, // For development
+    cache: false,
     query: {
       platform: Platform.OS,
     },
   };
-},{priority:0});
+});
 
 AppRegistry.registerComponent(appName, () => App);
