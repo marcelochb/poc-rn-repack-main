@@ -1,6 +1,6 @@
 import { ITheme } from '@poc/interfaces';
 import { ThemeBase } from '@poc/theme';
-import { PageWrapper } from '@poc/ui';
+import { Buttons, PageWrapper } from '@poc/ui';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 
@@ -8,6 +8,7 @@ type Props = {
   children: React.ReactNode;
   name: string;
   theme: ITheme;
+  callBack: () => void;
 };
 
 type State = {
@@ -17,11 +18,13 @@ type State = {
 class ErrorBoundary extends React.Component<Props, State> {
   name: string;
   theme: ITheme;
+  callBack: () => void;
 
   constructor(props: Props) {
     super(props);
     this.name = props.name;
     this.theme = props.theme;
+    this.callBack = props.callBack;
     this.state = {hasError: false};
   }
 
@@ -36,10 +39,12 @@ class ErrorBoundary extends React.Component<Props, State> {
   render() {
     if (this.state.hasError) {
       return (
-        <PageWrapper theme={this.theme} error errorText={`Failed to load ${this.name}`}
-        
+        <PageWrapper 
+          theme={this.theme} 
+          error 
+          errorText={`Tivemos um problema para carregar o module de ${this.name}, tente mais tarde!`}
+          errorCallBack={this.callBack}
         >
-
         </PageWrapper>
       );
     }
